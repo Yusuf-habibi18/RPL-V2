@@ -1,8 +1,8 @@
 import { cn } from "@/lib/cn";
 
 const GRADIEN = {
-  ph: "linear-gradient(90deg,#F05D6C 0%,#F5B942 28%,#22C78A 48%,#27C7F5 70%,#247BFF 100%)",
-  suhu: "linear-gradient(90deg,#247BFF 0%,#27C7F5 25%,#22C78A 45%,#F5B942 72%,#F05D6C 100%)",
+  ph: "linear-gradient(90deg,#DC2626 0%,#F59E0B 28%,#22A55A 48%,#0EA5A4 70%,#2563EB 100%)",
+  suhu: "linear-gradient(90deg,#2563EB 0%,#0EA5A4 25%,#22A55A 45%,#F59E0B 72%,#DC2626 100%)",
 } as const;
 
 /**
@@ -57,7 +57,7 @@ export function RangeScale({
         <div className="relative h-2.5 rounded-full opacity-90" style={{ background: GRADIEN[jenis] }}>
           {amanMin !== undefined && amanMaks !== undefined && (
             <div
-              className="absolute -inset-y-1.5 rounded-md border-2 border-success/80 bg-success/10"
+              className="absolute -inset-y-1.5 rounded-md border-2 border-primary bg-white/35 shadow-sm"
               style={{ left: `${persen(amanMin)}%`, width: `${persen(amanMaks) - persen(amanMin)}%` }}
               title={`Rentang aman ${amanMin}–${amanMaks}${satuan}`}
             />

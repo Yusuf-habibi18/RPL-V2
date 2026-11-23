@@ -40,7 +40,7 @@ export async function KetuaView({ user }: { user: PenggunaAktif }) {
         title={d.kelompok.nama}
         description="Ringkasan kondisi lahan, kegiatan, dan jadwal panen anggota kelompok."
         action={
-          <Link href="/kelompok" className="text-sm font-semibold text-cyan hover:underline">
+          <Link href="/kelompok" className="text-sm font-semibold text-primary hover:underline">
             Kelola anggota →
           </Link>
         }

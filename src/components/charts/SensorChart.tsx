@@ -2,7 +2,7 @@
 
 import { useId } from "react";
 import { Area, AreaChart, CartesianGrid, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { SUMBU, TOOLTIP, WARNA } from "@/components/charts/tema";
+import { SUMBU, TOOLTIP, WARNA, WARNA_SENSOR } from "@/components/charts/tema";
 import { formatJam, formatTanggalJam, formatTanggalPendek } from "@/lib/format";
 
 export interface TitikSensor {
@@ -23,7 +23,7 @@ export function SensorChart({
   domain,
   harian = false,
   tinggi = 220,
-  warna = WARNA.cyan,
+  warna = WARNA_SENSOR.kelembapanTanah,
 }: {
   data: TitikSensor[];
   label: string;
@@ -45,7 +45,7 @@ export function SensorChart({
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
           <defs>
             <linearGradient id={`sc-${id}`} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={warna} stopOpacity={0.32} />
+              <stop offset="0%" stopColor={warna} stopOpacity={0.22} />
               <stop offset="100%" stopColor={warna} stopOpacity={0} />
             </linearGradient>
           </defs>
@@ -55,7 +55,7 @@ export function SensorChart({
               y1={amanMin}
               y2={amanMaks}
               fill={WARNA.success}
-              fillOpacity={0.06}
+              fillOpacity={0.07}
               stroke={WARNA.success}
               strokeOpacity={0.35}
               strokeDasharray="4 4"

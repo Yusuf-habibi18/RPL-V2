@@ -15,6 +15,12 @@ export async function middleware(req: NextRequest) {
   const sesi = await bacaTokenSesi(req.cookies.get(NAMA_COOKIE)?.value);
 
   if (pathname === "/login") {
+    // Sesi basi (akun dihapus/dinonaktifkan): hapus cookie lalu tampilkan form login.
+    if (req.nextUrl.searchParams.has("keluar")) {
+      const res = NextResponse.next();
+      res.cookies.delete(NAMA_COOKIE);
+      return res;
+    }
     return sesi ? NextResponse.redirect(new URL("/dashboard", req.url)) : NextResponse.next();
   }
 

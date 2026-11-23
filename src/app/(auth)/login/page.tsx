@@ -20,30 +20,33 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
       <FieldBackdrop />
 
       {/* Panel identitas (desktop) */}
-      <section className="relative hidden overflow-hidden border-r border-line bg-gradient-to-br from-[#0d1c38] via-bg to-bg p-12 lg:flex lg:flex-col">
-        <Logo />
+      <section className="relative hidden overflow-hidden bg-sidebar p-12 text-white lg:flex lg:flex-col">
+        {/* grid teknis + cahaya emerald */}
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgb(163_230_53/0.06)_1px,transparent_1px),linear-gradient(90deg,rgb(163_230_53/0.06)_1px,transparent_1px)] bg-[size:28px_28px]" />
+        <div className="anim-glow pointer-events-none absolute -left-32 -top-32 size-[36rem] rounded-full bg-emerald/25 blur-3xl" />
+        <Logo terang className="relative" />
         <div className="relative my-auto max-w-lg">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan">Smart Farming Intelligence</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-lime">Smart Farming Intelligence</p>
           <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight">
-            Data sensor lahan menjadi <span className="bg-gradient-to-r from-primary to-cyan bg-clip-text text-transparent">tindakan nyata</span> di
+            Data sensor lahan menjadi <span className="bg-gradient-to-r from-lime to-emerald bg-clip-text text-transparent">tindakan nyata</span> di
             kebun Anda.
           </h1>
           <ul className="mt-10 space-y-5">
             {FITUR.map(({ ikon: Ikon, judul, teks }) => (
               <li key={judul} className="flex gap-4">
-                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-cyan ring-1 ring-primary/25">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/10 text-lime ring-1 ring-white/15">
                   <Ikon className="size-5" aria-hidden />
                 </span>
                 <span>
                   <span className="block font-semibold">{judul}</span>
-                  <span className="block text-sm text-muted">{teks}</span>
+                  <span className="block text-sm text-white/65">{teks}</span>
                 </span>
               </li>
             ))}
           </ul>
         </div>
-        <LeafHologram className="pointer-events-none absolute -bottom-10 -right-16 h-[420px] w-[420px] opacity-80" />
-        <p className="relative text-xs text-muted">Proyek Rekayasa Perangkat Lunak · Kelompok 2</p>
+        <LeafHologram terang className="pointer-events-none absolute -bottom-10 -right-16 h-[420px] w-[420px] opacity-90" />
+        <p className="relative font-mono text-xs text-white/45">Proyek Rekayasa Perangkat Lunak · Kelompok 2</p>
       </section>
 
       {/* Form */}

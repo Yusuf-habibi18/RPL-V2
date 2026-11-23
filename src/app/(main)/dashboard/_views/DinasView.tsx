@@ -21,7 +21,7 @@ export async function DinasView({ user }: { user: PenggunaAktif }) {
         title="Analitik pertanian wilayah"
         description="Produksi, luas tanam, dan kondisi lahan yang terpantau sensor."
         action={
-          <Link href="/laporan" className="text-sm font-semibold text-cyan hover:underline">
+          <Link href="/laporan" className="text-sm font-semibold text-primary hover:underline">
             Buka laporan →
           </Link>
         }

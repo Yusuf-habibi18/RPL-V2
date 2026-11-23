@@ -75,9 +75,9 @@ export function DaftarAnggota({ anggota }: { anggota: AnggotaTampil[] }) {
                 <button
                   onClick={() => setBuka(terbuka ? null : a.id)}
                   aria-expanded={terbuka}
-                  className="flex w-full items-center gap-3 p-3.5 text-left transition-colors hover:bg-white/[0.02]"
+                  className="flex w-full items-center gap-3 p-3.5 text-left transition-colors hover:bg-soft/60"
                 >
-                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary/70 to-cyan/70 text-sm font-bold">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary/70 to-emerald/70 text-sm font-bold">
                     {inisial(a.nama)}
                   </span>
                   <span className="min-w-0 flex-1">
@@ -97,7 +97,7 @@ export function DaftarAnggota({ anggota }: { anggota: AnggotaTampil[] }) {
                     <div className="mb-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted">
                       <span>{a.email}</span>
                       {a.noHp && (
-                        <a href={`tel:${a.noHp}`} className="inline-flex items-center gap-1 text-cyan hover:underline">
+                        <a href={`tel:${a.noHp}`} className="inline-flex items-center gap-1 text-primary hover:underline">
                           <Phone className="size-3.5" aria-hidden /> {a.noHp}
                         </a>
                       )}

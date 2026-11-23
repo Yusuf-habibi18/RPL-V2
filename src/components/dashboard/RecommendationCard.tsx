@@ -46,7 +46,7 @@ export function RecommendationCard({ rek, bisaAksi, ringkas = false }: { rek: It
         <span
           className={cn(
             "absolute inset-x-0 top-0 h-0.5",
-            siram ? "bg-gradient-to-r from-primary via-cyan to-transparent" : "bg-gradient-to-r from-success via-cyan/60 to-transparent",
+            siram ? "bg-gradient-to-r from-data via-data/40 to-transparent" : "bg-gradient-to-r from-primary via-lime/70 to-transparent",
           )}
           aria-hidden
         />
@@ -55,7 +55,7 @@ export function RecommendationCard({ rek, bisaAksi, ringkas = false }: { rek: It
         <span
           className={cn(
             "grid size-11 shrink-0 place-items-center rounded-xl ring-1 ring-inset",
-            siram ? "bg-cyan/10 text-cyan ring-cyan/25" : "bg-success/10 text-success ring-success/25",
+            siram ? "bg-data/10 text-data ring-data/25" : "bg-soft text-primary ring-primary/25",
           )}
         >
           <Ikon className="size-5" aria-hidden />
@@ -77,7 +77,7 @@ export function RecommendationCard({ rek, bisaAksi, ringkas = false }: { rek: It
       <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm">
         <span className="inline-flex items-center gap-1.5">
           <CalendarClock className="size-4 text-muted" aria-hidden />
-          <span className={cn("font-semibold", rek.jadwalLabel === "Sekarang" && menunggu && "text-cyan")}>{rek.jadwalLabel}</span>
+          <span className={cn("font-semibold", rek.jadwalLabel === "Sekarang" && menunggu && "text-primary")}>{rek.jadwalLabel}</span>
         </span>
         {rek.dosis && <span className="text-muted">Dosis: <span className="text-fg">{rek.dosis}</span></span>}
         {rek.kegiatanLabel && <span className="text-success">{rek.kegiatanLabel}</span>}

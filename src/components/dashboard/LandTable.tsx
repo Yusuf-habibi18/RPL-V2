@@ -29,7 +29,7 @@ export function LandTable({ lahan, tautan = true }: { lahan: RingkasanLahan[]; t
             <Tr key={l.id}>
               <Td>
                 {tautan ? (
-                  <Link href={`/monitoring?lahan=${l.id}`} className="font-semibold hover:text-cyan">
+                  <Link href={`/monitoring?lahan=${l.id}`} className="font-semibold hover:text-primary">
                     {l.nama}
                   </Link>
                 ) : (

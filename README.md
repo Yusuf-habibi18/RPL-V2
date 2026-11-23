@@ -4,11 +4,13 @@ Aplikasi web yang mengubah data sensor lahan (kelembapan tanah, suhu, pH) dan da
 **peringatan dini**, **rekomendasi penyiraman & pemupukan**, dan **estimasi panen**.
 Proyek mata kuliah Rekayasa Perangkat Lunak, Kelompok 2.
 
+> **Versi 2 (RPL-V2):** desain ulang tema terang hijau. Versi tema gelap ada di repo [RPL-V1](https://github.com/Yusuf-habibi18/RPL-V1).
+
 ## Teknologi
 
 - **Next.js 15** (App Router, Server Components, Server Actions) + **TypeScript**
-- **Prisma** + **SQLite** (pengembangan; bisa diganti PostgreSQL)
-- **Tailwind CSS 4**: tema gelap "Smart Farming Intelligence"
+- **Prisma** + **PostgreSQL** (Neon, gratis) · deploy di **Vercel**
+- **Tailwind CSS 4**: tema terang hijau "Futuristic Smart Agriculture" (sidebar hijau gelap, kartu putih, aksen emerald & lime)
 - **Recharts**: grafik · **lucide-react**: ikon · **jose**: sesi login (JWT di cookie httpOnly)
 - **Zod**: validasi · **Vitest**: pengujian unit
 
@@ -19,16 +21,30 @@ Butuh Node.js 20 atau lebih baru.
 > **Catatan OneDrive:** jangan jalankan `npm install` di folder yang tersinkron OneDrive karena `node_modules`
 > berukuran ratusan MB. Salin/clone proyek ke folder lokal (mis. `C:\dev\agri-analytics`).
 
+Butuh database PostgreSQL. Cara termudah: buat project gratis di [neon.tech](https://neon.tech)
+(region Singapore), lalu isi `DATABASE_URL` dan `DIRECT_URL` di `.env` (lihat `.env.example`).
+
 ```bash
 npm install
-cp .env.example .env      # Windows PowerShell: Copy-Item .env.example .env
+cp .env.example .env      # Windows PowerShell: Copy-Item .env.example .env  → lalu isi koneksi Neon
 npm run db:push           # buat tabel dari prisma/schema.prisma
 npm run db:seed           # isi data dummy (30 hari riwayat sensor)
 npm run dev               # buka http://localhost:3000
 ```
 
 Data seed relatif terhadap waktu seed dijalankan. Sensor dianggap **terputus** bila > 30 menit tanpa data,
-jadi **jalankan ulang `npm run db:seed` sebelum demo**.
+jadi **jalankan ulang `npm run db:seed` sebelum demo**. Seed menghapus semua data lalu mengisinya ulang;
+pengguna yang sedang login otomatis diarahkan ke halaman login.
+
+## Deploy ke Vercel
+
+1. Di [vercel.com](https://vercel.com) → **Add New → Project** → import repo GitHub ini.
+2. Tambahkan **Environment Variables**: `DATABASE_URL`, `DIRECT_URL`, `SESSION_SECRET`
+   (string acak panjang), dan `TAMPILKAN_AKUN_DEMO=1` bila tombol akun demo ingin tampil.
+3. Klik **Deploy**. Vercel menjalankan `npm run build` (termasuk `prisma generate`).
+4. Isi database sekali dari laptop: `npm run db:push` lalu `npm run db:seed` (dengan `.env` mengarah ke Neon).
+
+Setiap push ke branch `main` otomatis di-deploy ulang.
 
 | Perintah | Fungsi |
 |---|---|

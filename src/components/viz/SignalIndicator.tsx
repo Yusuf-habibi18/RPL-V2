@@ -28,7 +28,7 @@ export function SignalIndicator({
         {[0.35, 0.55, 0.78, 1].map((h, i) => (
           <span
             key={i}
-            className={cn("w-[3px] rounded-sm", on ? "bg-cyan" : "bg-muted/30", on && i === 3 && "opacity-70")}
+            className={cn("w-[3px] rounded-sm", on ? "bg-data" : "bg-muted/30", on && i === 3 && "opacity-70")}
             style={{ height: `${h * 100}%` }}
           />
         ))}

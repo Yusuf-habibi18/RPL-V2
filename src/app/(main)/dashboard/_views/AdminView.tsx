@@ -20,7 +20,7 @@ export async function AdminView() {
         title="Administrasi sistem"
         description="Infrastruktur sensor, pengguna, dan aktivitas sistem 24 jam terakhir."
         action={
-          <Link href="/admin" className="text-sm font-semibold text-cyan hover:underline">
+          <Link href="/admin" className="text-sm font-semibold text-primary hover:underline">
             Buka pengelolaan →
           </Link>
         }
@@ -47,7 +47,7 @@ export async function AdminView() {
             title="Status perangkat sensor"
             description="NFR-13: tidak mengirim data > 30 menit = terputus"
             action={
-              <Link href="/admin?tab=sensor" className="text-sm font-semibold text-cyan hover:underline">
+              <Link href="/admin?tab=sensor" className="text-sm font-semibold text-primary hover:underline">
                 Kelola
               </Link>
             }
@@ -93,7 +93,7 @@ export async function AdminView() {
                 { label: "Notifikasi terkirim", nilai: d.notifikasiTerkirim24, ikon: Send },
               ].map(({ label, nilai, ikon: Ikon }) => (
                 <div key={label} className="rounded-xl border border-line bg-bg/40 p-3">
-                  <Ikon className="size-4 text-cyan" aria-hidden />
+                  <Ikon className="size-4 text-primary" aria-hidden />
                   <dd className="mt-2 text-xl font-bold num">{nilai.toLocaleString("id-ID")}</dd>
                   <dt className="text-xs text-muted">{label}</dt>
                 </div>

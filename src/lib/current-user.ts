@@ -25,7 +25,9 @@ export type PenggunaAktif = NonNullable<Awaited<ReturnType<typeof getCurrentUser
 /** Wajib login; bila `peran` diisi, hanya role tersebut yang boleh lanjut. */
 export async function requireUser(peran?: Peran[]): Promise<PenggunaAktif> {
   const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  // Token sah tetapi akunnya sudah dihapus/dinonaktifkan: "keluar=1" membuat middleware
+  // menghapus cookie sesi. Tanpa ini /login ↔ /dashboard saling mengalihkan tanpa henti.
+  if (!user) redirect("/login?keluar=1");
   if (peran && !peran.includes(user.peran)) redirect("/akses-ditolak");
   return user;
 }

@@ -67,9 +67,9 @@ export const BadgePrioritas = ({ prioritas }: { prioritas: Prioritas }) => <Badg
 
 /** Warna hex per status untuk visualisasi SVG/grafik. */
 export const WARNA_STATUS: Record<StatusKondisi, string> = {
-  SEHAT: "#22C78A",
-  WASPADA: "#F5B942",
-  KRITIS: "#F05D6C",
-  TANPA_DATA: "#91A2BC",
-  KOSONG: "#91A2BC",
+  SEHAT: "#16A34A",
+  WASPADA: "#D97706",
+  KRITIS: "#DC2626",
+  TANPA_DATA: "#9AA8A0",
+  KOSONG: "#9AA8A0",
 };

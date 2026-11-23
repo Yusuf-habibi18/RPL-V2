@@ -3,12 +3,12 @@ import { TONE_TEKS, type Tone } from "@/components/ui/Badge";
 import { cn } from "@/lib/cn";
 
 const AKSEN: Record<Tone, string> = {
-  success: "from-success/20 text-success ring-success/25",
-  warning: "from-warning/20 text-warning ring-warning/25",
-  danger: "from-danger/20 text-danger ring-danger/25",
-  info: "from-cyan/20 text-cyan ring-cyan/25",
-  primary: "from-primary/25 text-[#7fb2ff] ring-primary/30",
-  neutral: "from-white/10 text-muted ring-white/10",
+  success: "from-success/15 text-success ring-success/25",
+  warning: "from-warning/15 text-warning ring-warning/25",
+  danger: "from-danger/15 text-danger ring-danger/25",
+  info: "from-data/15 text-data ring-data/20",
+  primary: "from-primary/15 text-primary ring-primary/25",
+  neutral: "from-fg/5 text-muted ring-line",
 };
 
 /** Kartu angka ringkas: ikon, label, nilai besar, keterangan. */
@@ -33,7 +33,7 @@ export function StatCard({
 }) {
   return (
     <div className={cn("panel group relative overflow-hidden rounded-2xl p-4 transition-colors hover:border-primary/30", className)}>
-      <div className="pointer-events-none absolute -right-8 -top-8 size-24 rounded-full bg-primary/5 blur-2xl transition-colors group-hover:bg-primary/10" />
+      <div className="pointer-events-none absolute -right-8 -top-8 size-24 rounded-full bg-emerald/10 blur-2xl transition-colors group-hover:bg-lime/25" />
       <div className="flex items-start justify-between gap-2">
         <p className="text-[13px] font-medium text-muted">{label}</p>
         <span className={cn("grid size-8 place-items-center rounded-lg bg-gradient-to-br to-transparent ring-1 ring-inset [&>svg]:size-4", AKSEN[tone])}>

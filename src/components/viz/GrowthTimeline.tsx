@@ -25,8 +25,8 @@ export function GrowthTimeline({
       <div className="relative h-14">
         {/* penanda hari ini */}
         <div className="absolute top-0 -translate-x-1/2 text-center transition-[left] duration-700" style={{ left: `${pos}%` }}>
-          <span className="block whitespace-nowrap rounded-md bg-cyan px-1.5 py-0.5 text-[11px] font-bold text-bg num">HST {hst}</span>
-          <span className="mx-auto block h-7 w-px bg-gradient-to-b from-cyan to-transparent" />
+          <span className="block whitespace-nowrap rounded-md bg-primary px-1.5 py-0.5 text-[11px] font-bold text-white num">HST {hst}</span>
+          <span className="mx-auto block h-7 w-px bg-gradient-to-b from-primary to-transparent" />
         </div>
         {/* penanda panen */}
         <div className="absolute top-3 -translate-x-1/2" style={{ left: `${panenPos}%` }} title={`Umur panen ${umurPanenHst} HST`}>
@@ -45,8 +45,8 @@ export function GrowthTimeline({
               <div
                 className={cn(
                   "h-full rounded-full",
-                  lewat && "bg-gradient-to-r from-primary/80 to-cyan/80",
-                  kini && "bg-gradient-to-r from-primary to-cyan shadow-[0_0_12px_rgb(39_199_245/0.6)]",
+                  lewat && "bg-gradient-to-r from-primary to-emerald",
+                  kini && "bg-gradient-to-r from-emerald to-lime shadow-[0_0_10px_rgb(163_230_53/0.7)]",
                 )}
                 style={{ width: kini ? `${((hst - f.hstMulai + 1) / (f.hstSelesai - f.hstMulai + 1)) * 100}%` : lewat ? "100%" : "0%" }}
               />
@@ -62,7 +62,7 @@ export function GrowthTimeline({
           const lebar = Math.max(0, Math.min(f.hstSelesai + 1, total) - Math.min(f.hstMulai, total));
           return (
             <div key={f.nama} className="min-w-0" style={{ flexGrow: lebar, flexBasis: 0 }}>
-              <p className={cn("flex items-center gap-1 truncate text-[11px] font-semibold", kini ? "text-cyan" : "text-muted")}>
+              <p className={cn("flex items-center gap-1 truncate text-[11px] font-semibold", kini ? "text-primary" : "text-muted")}>
                 <Ikon className="size-3.5 shrink-0" aria-hidden />
                 <span className="truncate">{judulKata(f.nama)}</span>
               </p>

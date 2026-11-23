@@ -12,7 +12,7 @@ export function PlantingSummary({ tanam, lahan }: { tanam: TanamAktif; lahan: st
   return (
     <div>
       <div className="flex items-center gap-4">
-        <ProgressRing nilai={progres} label={`Progres menuju panen ${Math.round(Math.min(progres, 1) * 100)}%`} warna={progres >= 1 ? "#F5B942" : "#27C7F5"}>
+        <ProgressRing nilai={progres} label={`Progres menuju panen ${Math.round(Math.min(progres, 1) * 100)}%`} warna={progres >= 1 ? "#D97706" : "#20B66A"}>
           <div>
             <p className="text-lg font-bold leading-none num">{Math.round(Math.min(progres, 1) * 100)}%</p>
             <p className="mt-0.5 text-[10px] text-muted">menuju panen</p>
@@ -24,7 +24,7 @@ export function PlantingSummary({ tanam, lahan }: { tanam: TanamAktif; lahan: st
             {tanam.komoditas} · {tanam.varietas}
           </p>
           <p className="text-sm text-muted">
-            Fase <span className="font-semibold text-cyan">{judulKata(tanam.fase)}</span> · HST {tanam.hst}
+            Fase <span className="font-semibold text-primary">{judulKata(tanam.fase)}</span> · HST {tanam.hst}
           </p>
           {tanam.estimasiPanen && (
             <p className="flex items-center gap-1.5 text-sm">

@@ -5,7 +5,7 @@ export function ProgressRing({
   nilai,
   ukuran = 96,
   tebal = 9,
-  warna = "#27C7F5",
+  warna = "#20B66A",
   children,
   label,
 }: {
@@ -22,7 +22,7 @@ export function ProgressRing({
   return (
     <div className="relative shrink-0" style={{ width: ukuran, height: ukuran }} role="img" aria-label={label}>
       <svg width={ukuran} height={ukuran} className="-rotate-90">
-        <circle cx={ukuran / 2} cy={ukuran / 2} r={r} stroke="#162744" strokeWidth={tebal} fill="none" />
+        <circle cx={ukuran / 2} cy={ukuran / 2} r={r} stroke="#E8F5EC" strokeWidth={tebal} fill="none" />
         <circle
           cx={ukuran / 2}
           cy={ukuran / 2}

@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
-/* ───────────── Design tokens: Futuristic Smart Farming Intelligence ───────────── */
+/* ───────────── Design tokens: Futuristic Smart Agriculture — Light ───────────── */
 @theme {
-  --color-bg: #080f1f;
-  --color-sidebar: #0b1426;
-  --color-card: #111e35;
-  --color-card-2: #162744;
-  --color-primary: #247bff;
-  --color-cyan: #27c7f5;
-  --color-success: #22c78a;
-  --color-warning: #f5b942;
-  --color-danger: #f05d6c;
-  --color-fg: #f4f7fc;
-  --color-muted: #91a2bc;
-  --color-line: rgb(148 169 204 / 0.14);
+  /* Permukaan */
+  --color-bg: #f5f8f5;
+  --color-card: #ffffff;
+  --color-card-2: #e8f5ec; /* permukaan sekunder: track bar, tombol sekunder */
+  --color-soft: #e8f5ec;
+  --color-sidebar: #123b28;
+  --color-line: #e3ebe5;
+
+  /* Identitas pertanian */
+  --color-primary: #16834a;
+  --color-emerald: #20b66a;
+  --color-lime: #a3e635;
+
+  /* Aksen data / sensor */
+  --color-data: #2563eb;
+
+  /* Semantik (teks di atas putih ≥ 4.5:1) */
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-danger: #dc2626;
+
+  /* Teks */
+  --color-fg: #17251d;
+  --color-muted: #718078;
 
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-data), ui-monospace, monospace;
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -28,29 +40,30 @@ body {
   color: var(--color-fg);
 }
 
-/* Latar: cahaya biru lembut + grid teknis halus. Detail kontur & petak lahan ada di <FieldBackdrop>. */
+/* Di dalam layer "components" agar utilitas Tailwind (bg-*, shadow-*) tetap bisa menimpanya. */
+@layer components {
+/* Latar: cahaya emerald lembut + grid teknis halus. Kontur & petak lahan ada di <FieldBackdrop>. */
 .agri-bg {
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(70rem 40rem at 8% -12%, rgb(36 123 255 / 0.16), transparent 60%),
-    radial-gradient(50rem 32rem at 100% 0%, rgb(39 199 245 / 0.07), transparent 62%),
-    linear-gradient(rgb(148 169 204 / 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(148 169 204 / 0.035) 1px, transparent 1px);
-  background-size: auto, auto, 44px 44px, 44px 44px;
+    radial-gradient(60rem 36rem at 12% -14%, rgb(32 182 106 / 0.11), transparent 62%),
+    radial-gradient(46rem 30rem at 100% 0%, rgb(163 230 53 / 0.1), transparent 60%),
+    linear-gradient(rgb(22 131 74 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(22 131 74 / 0.045) 1px, transparent 1px);
+  background-size: auto, auto, 40px 40px, 40px 40px;
   background-attachment: fixed;
 }
 
-/* Kartu "kaca" dengan garis tepi tipis */
+/* Kartu putih dengan garis tepi tipis & bayangan lembut */
 .panel {
-  background: linear-gradient(180deg, rgb(22 39 68 / 0.72), rgb(17 30 53 / 0.82));
+  background: var(--color-card);
   border: 1px solid var(--color-line);
   box-shadow:
-    inset 0 1px 0 0 rgb(255 255 255 / 0.03),
-    0 12px 32px -16px rgb(0 0 0 / 0.6);
-  backdrop-filter: blur(6px);
+    0 1px 2px 0 rgb(18 59 40 / 0.04),
+    0 8px 24px -16px rgb(18 59 40 / 0.18);
 }
 
-/* Sudut teknis halus pada panel unggulan */
+/* Sudut HUD tipis pada panel unggulan */
 .corner-ticks {
   position: relative;
 }
@@ -58,29 +71,38 @@ body {
 .corner-ticks::after {
   content: "";
   position: absolute;
-  width: 14px;
-  height: 14px;
-  border-color: rgb(39 199 245 / 0.45);
+  width: 16px;
+  height: 16px;
+  border-color: rgb(32 182 106 / 0.7);
   pointer-events: none;
 }
 .corner-ticks::before {
   top: -1px;
   left: -1px;
-  border-top: 1px solid;
-  border-left: 1px solid;
+  border-top: 2px solid;
+  border-left: 2px solid;
   border-top-left-radius: 1rem;
 }
 .corner-ticks::after {
   bottom: -1px;
   right: -1px;
-  border-bottom: 1px solid;
-  border-right: 1px solid;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
   border-bottom-right-radius: 1rem;
 }
 
+/* Pola grid teknis di dalam panel (hero, kartu grafik) */
+.hud-grid {
+  background-image:
+    linear-gradient(rgb(22 131 74 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(22 131 74 / 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+} /* akhir @layer components */
+
 /* ───────────── Animasi (dihormati prefers-reduced-motion) ───────────── */
 @keyframes agri-pulse {
-  0% { transform: scale(1); opacity: 0.6; }
+  0% { transform: scale(1); opacity: 0.55; }
   100% { transform: scale(2.6); opacity: 0; }
 }
 .anim-pulse { position: relative; }
@@ -98,15 +120,15 @@ body {
 
 @keyframes agri-drift {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-6px); }
 }
 .anim-drift { animation: agri-drift 9s ease-in-out infinite; }
 
-@keyframes agri-scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+@keyframes agri-glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
 }
-.anim-scan { animation: agri-scan 6s linear infinite; }
+.anim-glow { animation: agri-glow 6s ease-in-out infinite; }
 
 @keyframes agri-in {
   from { opacity: 0; transform: translateY(6px); }
@@ -118,7 +140,7 @@ body {
   .anim-pulse::after,
   .anim-flow,
   .anim-drift,
-  .anim-scan,
+  .anim-glow,
   .anim-in {
     animation: none !important;
   }
@@ -132,22 +154,17 @@ body {
 
 /* ───────────── Detail UI ───────────── */
 :focus-visible {
-  outline: 2px solid var(--color-cyan);
+  outline: 2px solid var(--color-emerald);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: rgb(36 123 255 / 0.4);
+  background: rgb(163 230 53 / 0.45);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(148 169 204 / 0.25) transparent;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(0.75);
-  cursor: pointer;
+  scrollbar-color: rgb(113 128 120 / 0.35) transparent;
 }
 
 .num {

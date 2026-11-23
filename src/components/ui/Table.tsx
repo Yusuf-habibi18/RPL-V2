@@ -28,5 +28,5 @@ export function Td({ className, ...props }: TdHTMLAttributes<HTMLTableCellElemen
 }
 
 export function Tr({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) {
-  return <tr className={cn("transition-colors hover:bg-white/[0.02]", className)} {...props} />;
+  return <tr className={cn("transition-colors hover:bg-soft/60", className)} {...props} />;
 }

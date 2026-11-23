@@ -1,6 +1,7 @@
 import { Activity, Database, Droplets, FlaskConical, Gauge, History, Radio, Thermometer } from "lucide-react";
 import type { ReactNode } from "react";
 import { SensorChart } from "@/components/charts/SensorChart";
+import { WARNA_SENSOR } from "@/components/charts/tema";
 import { SensorOverview } from "@/components/dashboard/SensorOverview";
 import { WeatherCard } from "@/components/dashboard/WeatherCard";
 import { Badge } from "@/components/ui/Badge";
@@ -163,10 +164,10 @@ export default async function MonitoringPage({
             <SensorChart data={seri("kelembapanTanah")} label="Kelembapan tanah" satuan="%" amanMin={ambang("KELEMBAPAN_TANAH")?.min} amanMaks={ambang("KELEMBAPAN_TANAH")?.maks} harian={harian} tinggi={260} />
           </PanelGrafik>
           <PanelGrafik judul="pH tanah" ikon={<FlaskConical />} stat={riwayat.statistik?.ph} satuan="">
-            <SensorChart data={seri("ph")} label="pH tanah" amanMin={ambang("PH")?.min} amanMaks={ambang("PH")?.maks} harian={harian} warna="#4A8DFF" />
+            <SensorChart data={seri("ph")} label="pH tanah" amanMin={ambang("PH")?.min} amanMaks={ambang("PH")?.maks} harian={harian} warna={WARNA_SENSOR.ph} />
           </PanelGrafik>
           <PanelGrafik judul="Suhu" ikon={<Thermometer />} stat={riwayat.statistik?.suhu} satuan="°C">
-            <SensorChart data={seri("suhu")} label="Suhu" satuan="°C" amanMin={ambang("SUHU")?.min} amanMaks={ambang("SUHU")?.maks} harian={harian} warna="#9277F0" />
+            <SensorChart data={seri("suhu")} label="Suhu" satuan="°C" amanMin={ambang("SUHU")?.min} amanMaks={ambang("SUHU")?.maks} harian={harian} warna={WARNA_SENSOR.suhu} />
           </PanelGrafik>
         </div>
       )}

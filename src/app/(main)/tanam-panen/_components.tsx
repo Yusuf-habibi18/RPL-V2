@@ -16,7 +16,7 @@ import { formatAngka, judulKata } from "@/lib/format";
 function PesanGalat({ pesan }: { pesan: string | null }) {
   if (!pesan) return null;
   return (
-    <p role="alert" className="flex items-start gap-2 rounded-xl border border-danger/35 bg-danger/10 px-3 py-2.5 text-sm text-[#ffc2c8]">
+    <p role="alert" className="flex items-start gap-2 rounded-xl border border-danger/35 bg-danger/10 px-3 py-2.5 text-sm text-danger">
       <OctagonAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
       {pesan}
     </p>
@@ -190,7 +190,7 @@ export function RiwayatKegiatan({
           <ol className="relative space-y-4 border-l border-line pl-5">
             {kegiatan.map((k) => (
               <li key={k.id} className="relative">
-                <span className="absolute -left-[25px] top-1 size-2.5 rounded-full bg-cyan ring-4 ring-card" aria-hidden />
+                <span className="absolute -left-[25px] top-1 size-2.5 rounded-full bg-primary ring-4 ring-card" aria-hidden />
                 <p className="text-sm font-semibold">
                   {judulKata(k.jenis)} <span className="font-normal text-muted">· {k.tanggalLabel}</span>
                 </p>

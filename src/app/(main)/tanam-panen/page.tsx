@@ -68,7 +68,7 @@ export default async function TanamPanenPage() {
               return (
                 <Card key={b.id} className="p-5">
                   <div className="flex items-start gap-4">
-                    <ProgressRing nilai={progres} ukuran={84} label={`Progres ${Math.round(Math.min(progres, 1) * 100)}%`} warna={progres >= 0.88 ? "#F5B942" : "#27C7F5"}>
+                    <ProgressRing nilai={progres} ukuran={84} label={`Progres ${Math.round(Math.min(progres, 1) * 100)}%`} warna={progres >= 0.88 ? "#D97706" : "#20B66A"}>
                       <div>
                         <p className="text-base font-bold leading-none num">{b.hst}</p>
                         <p className="text-[10px] text-muted">HST</p>
@@ -119,7 +119,7 @@ export default async function TanamPanenPage() {
           <CardHeader icon={<BarChart3 />} title="Produktivitas per musim" description="Hasil panen per hektar (ton/ha)" />
           <div className="p-5 pt-3">
             {grafik.length ? (
-              <BarChartSimple data={grafik} xKey="musim" yKey="produktivitas" label="Produktivitas" satuan=" ton/ha" warna="#22C78A" tinggi={240} />
+              <BarChartSimple data={grafik} xKey="musim" yKey="produktivitas" label="Produktivitas" satuan=" ton/ha" warna="#16834A" tinggi={240} />
             ) : (
               <EmptyState icon={BarChart3} title="Belum ada data panen" />
             )}

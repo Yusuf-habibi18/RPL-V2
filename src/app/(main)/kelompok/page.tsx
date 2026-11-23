@@ -112,7 +112,7 @@ export default async function KelompokPage() {
                     <p className="shrink-0 font-semibold num">{formatTanggal(j.estimasi)}</p>
                   </div>
                   <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-card-2" role="img" aria-label={`Progres ${Math.round(progres * 100)}%`}>
-                    <div className="h-full rounded-full bg-gradient-to-r from-primary to-cyan" style={{ width: `${progres * 100}%` }} />
+                    <div className="h-full rounded-full bg-gradient-to-r from-primary to-emerald" style={{ width: `${progres * 100}%` }} />
                   </div>
                   <p className="mt-1 text-xs text-muted">
                     HST {j.hst}/{j.umurPanenHst} · {formatAngka(j.luasHa, 2)} ha ·{" "}

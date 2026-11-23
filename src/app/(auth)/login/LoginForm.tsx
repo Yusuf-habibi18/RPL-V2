@@ -24,7 +24,7 @@ export function LoginForm({ tujuan, tampilkanDemo }: { tujuan?: string; tampilka
       <form action={aksi} className="space-y-4" noValidate>
         <input type="hidden" name="next" value={tujuan ?? ""} />
         {state.error && (
-          <div role="alert" className="flex items-start gap-2.5 rounded-xl border border-danger/35 bg-danger/10 px-3.5 py-3 text-sm text-[#ffc2c8]">
+          <div role="alert" className="flex items-start gap-2.5 rounded-xl border border-danger/35 bg-danger/10 px-3.5 py-3 text-sm text-danger">
             <OctagonAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
             {state.error}
           </div>

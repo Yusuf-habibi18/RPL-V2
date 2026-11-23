@@ -32,11 +32,11 @@ export function Topbar({
   const keMonitoring = bolehAkses(user.peran, "/monitoring");
 
   return (
-    <header className="sticky top-0 z-20 border-b border-line bg-bg/75 backdrop-blur-md">
+    <header className="sticky top-0 z-20 border-b border-line bg-white/80 backdrop-blur-md">
       <div className="flex h-16 items-center gap-3 px-4 sm:px-6 lg:px-8">
         <button
           onClick={onMenu}
-          className="grid size-10 place-items-center rounded-xl text-muted hover:bg-white/5 hover:text-fg lg:hidden"
+          className="grid size-10 place-items-center rounded-xl text-muted hover:bg-soft hover:text-fg lg:hidden"
           aria-label="Buka menu"
         >
           <Menu className="size-5" />
@@ -68,8 +68,8 @@ export function Topbar({
               aria-expanded={open}
               aria-label={`Peringatan aktif: ${jumlahPeringatan}`}
               className={cn(
-                "relative grid size-10 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-fg",
-                open && "bg-white/5 text-fg",
+                "relative grid size-10 place-items-center rounded-xl text-muted transition-colors hover:bg-soft hover:text-fg",
+                open && "bg-soft text-fg",
               )}
             >
               <Bell className="size-5" />
@@ -98,7 +98,7 @@ export function Topbar({
                         <Link
                           href={keMonitoring ? `/monitoring?lahan=${p.lahanId}` : "/dashboard"}
                           onClick={close}
-                          className="flex gap-3 px-4 py-3 transition-colors hover:bg-white/[0.03]"
+                          className="flex gap-3 px-4 py-3 transition-colors hover:bg-soft/60"
                         >
                           <span
                             className={cn(
@@ -132,9 +132,9 @@ export function Topbar({
               onClick={toggle}
               aria-expanded={open}
               aria-label="Menu profil"
-              className="flex items-center gap-2 rounded-xl py-1 pl-1 pr-2 transition-colors hover:bg-white/5"
+              className="flex items-center gap-2 rounded-xl py-1 pl-1 pr-2 transition-colors hover:bg-soft"
             >
-              <span className="grid size-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-cyan text-xs font-bold text-white">
+              <span className="grid size-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-emerald text-xs font-bold text-white">
                 {inisial(user.nama)}
               </span>
               <span className="hidden text-left leading-tight md:block">
@@ -148,7 +148,7 @@ export function Topbar({
           {() => (
             <div className="p-2">
               <div className="flex items-center gap-3 px-2 py-2">
-                <UserRound className="size-5 text-cyan" aria-hidden />
+                <UserRound className="size-5 text-primary" aria-hidden />
                 <div className="min-w-0">
                   <p className="truncate text-sm font-semibold">{user.nama}</p>
                   <p className="truncate text-xs text-muted">{user.email}</p>

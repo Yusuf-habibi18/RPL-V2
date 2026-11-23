@@ -7,18 +7,18 @@ export const TONE_TEKS: Record<Tone, string> = {
   success: "text-success",
   warning: "text-warning",
   danger: "text-danger",
-  info: "text-cyan",
+  info: "text-data",
   primary: "text-primary",
   neutral: "text-muted",
 };
 
 const TONE: Record<Tone, string> = {
-  success: "bg-success/12 text-success ring-success/30",
-  warning: "bg-warning/12 text-warning ring-warning/30",
-  danger: "bg-danger/12 text-danger ring-danger/35",
-  info: "bg-cyan/10 text-cyan ring-cyan/30",
-  primary: "bg-primary/15 text-[#7fb2ff] ring-primary/35",
-  neutral: "bg-white/5 text-muted ring-white/10",
+  success: "bg-[#e6f4ea] text-success ring-success/25",
+  warning: "bg-[#fdf3e2] text-warning ring-warning/25",
+  danger: "bg-[#fdecec] text-danger ring-danger/25",
+  info: "bg-[#eaf1fe] text-data ring-data/25",
+  primary: "bg-soft text-primary ring-primary/30",
+  neutral: "bg-[#f1f4f2] text-muted ring-line",
 };
 
 interface Props {

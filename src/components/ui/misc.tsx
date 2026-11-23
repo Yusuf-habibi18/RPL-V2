@@ -17,7 +17,7 @@ export function PageHeader({
   return (
     <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        {eyebrow && <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-cyan">{eyebrow}</p>}
+        {eyebrow && <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{eyebrow}</p>}
         <h1 className="text-2xl font-bold tracking-tight sm:text-[1.7rem]">{title}</h1>
         {description && <p className="mt-1 max-w-2xl text-sm text-muted sm:text-base">{description}</p>}
       </div>
@@ -41,7 +41,7 @@ export function EmptyState({
 }) {
   return (
     <div className={cn("flex flex-col items-center px-6 py-10 text-center", className)}>
-      <span className="relative grid size-14 place-items-center rounded-2xl bg-primary/10 text-cyan ring-1 ring-primary/25">
+      <span className="relative grid size-14 place-items-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
         <Icon className="size-6" aria-hidden />
       </span>
       <p className="mt-4 font-semibold">{title}</p>
@@ -56,7 +56,7 @@ export function InfoNote({ children, tone = "info", className }: { children: Rea
     <div
       className={cn(
         "flex gap-2.5 rounded-xl border px-3.5 py-3 text-sm",
-        tone === "info" ? "border-cyan/25 bg-cyan/5 text-[#bfe9f7]" : "border-warning/30 bg-warning/8 text-[#f8dfa6]",
+        tone === "info" ? "border-data/20 bg-[#f2f6fe] text-fg [&>svg]:text-data" : "border-warning/25 bg-[#fdf6ea] text-fg [&>svg]:text-warning",
         className,
       )}
     >
@@ -87,13 +87,13 @@ export function TabLinks({
             aria-current={on ? "page" : undefined}
             className={cn(
               "inline-flex h-10 shrink-0 items-center gap-2 rounded-xl px-3.5 text-sm font-semibold transition-colors",
-              on ? "bg-primary/15 text-fg ring-1 ring-inset ring-primary/40" : "text-muted hover:bg-white/5 hover:text-fg",
+              on ? "bg-card text-primary shadow-sm ring-1 ring-inset ring-primary/35" : "text-muted hover:bg-soft hover:text-fg",
             )}
           >
-            {Ikon && <Ikon className={cn("size-4", on && "text-cyan")} aria-hidden />}
+            {Ikon && <Ikon className={cn("size-4", on && "text-primary")} aria-hidden />}
             {label}
             {jumlah !== undefined && jumlah > 0 && (
-              <span className={cn("rounded-full px-1.5 text-xs num", on ? "bg-primary text-white" : "bg-white/10 text-fg")}>
+              <span className={cn("rounded-full px-1.5 text-xs num", on ? "bg-primary text-white" : "bg-fg/10 text-fg")}>
                 {jumlah}
               </span>
             )}

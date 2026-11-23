@@ -5,11 +5,11 @@ import { cn } from "@/lib/cn";
 
 const VARIANT = {
   primary:
-    "bg-primary text-white shadow-[0_8px_22px_-10px_rgb(36_123_255/0.9)] hover:bg-[#3a89ff] active:bg-[#1f6ee6]",
-  secondary: "border border-line bg-card-2/80 text-fg hover:border-primary/40 hover:bg-[#1b3157]",
-  ghost: "text-muted hover:bg-white/5 hover:text-fg",
-  success: "bg-success/15 text-success ring-1 ring-inset ring-success/30 hover:bg-success/25",
-  danger: "bg-danger/12 text-danger ring-1 ring-inset ring-danger/30 hover:bg-danger/22",
+    "bg-primary text-white shadow-[0_8px_20px_-10px_rgb(22_131_74/0.75)] hover:bg-[#13703f] active:bg-[#0f5c34]",
+  secondary: "border border-line bg-card text-fg hover:border-primary/40 hover:bg-soft",
+  ghost: "text-muted hover:bg-soft hover:text-fg",
+  success: "bg-soft text-primary ring-1 ring-inset ring-primary/30 hover:bg-[#d6eedd]",
+  danger: "bg-danger text-white hover:bg-[#b91c1c]",
 } as const;
 
 const SIZE = {

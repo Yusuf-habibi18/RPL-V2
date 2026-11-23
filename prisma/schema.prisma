@@ -1,16 +1,16 @@
 // Skema database Agricultural Analytics System (Bab III 3.2 Class Diagram).
 //
-// Catatan: nilai "enum" disimpan sebagai String agar kompatibel dengan SQLite saat
-// pengembangan. Daftar nilai yang sah ada di src/types/index.ts. Untuk produksi
-// cukup ganti provider ke "postgresql" dan DATABASE_URL.
+// Database: PostgreSQL (Neon) untuk pengembangan maupun deploy di Vercel.
+// Nilai "enum" disimpan sebagai String; daftar nilai yang sah ada di src/types/index.ts.
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL") // koneksi pooled (dipakai aplikasi)
+  directUrl = env("DIRECT_URL") // koneksi langsung (dipakai prisma db push / migrasi)
 }
 
 // ─────────────────────────── Pengguna & organisasi ───────────────────────────

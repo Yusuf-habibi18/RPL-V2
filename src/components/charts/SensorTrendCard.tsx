@@ -43,7 +43,7 @@ export function SensorTrendCard({ titik, ambang, lahanId }: { titik: Titik[]; am
         title="Tren sensor"
         description={`${LABEL_PARAMETER[param]} · pita hijau = batas aman`}
         action={
-          <Link href={`/monitoring?lahan=${lahanId}`} className="text-sm font-semibold text-cyan hover:underline">
+          <Link href={`/monitoring?lahan=${lahanId}`} className="text-sm font-semibold text-primary hover:underline">
             Detail
           </Link>
         }

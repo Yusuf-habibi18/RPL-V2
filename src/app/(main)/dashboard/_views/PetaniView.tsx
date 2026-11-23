@@ -38,9 +38,9 @@ function JawabanCepat({
     success: "text-success bg-success/12 ring-success/30",
     warning: "text-warning bg-warning/12 ring-warning/30",
     danger: "text-danger bg-danger/12 ring-danger/35",
-    info: "text-cyan bg-cyan/10 ring-cyan/30",
-    primary: "text-[#7fb2ff] bg-primary/15 ring-primary/30",
-    neutral: "text-muted bg-white/5 ring-white/10",
+    info: "text-data bg-data/10 ring-data/25",
+    primary: "text-primary bg-soft ring-primary/25",
+    neutral: "text-muted bg-soft ring-line",
   };
   const isi = (
     <>
@@ -99,8 +99,9 @@ export async function PetaniView({ user, lahanId }: { user: PenggunaAktif; lahan
   return (
     <div className="grid gap-5 lg:grid-cols-3">
       {/* 1 · Sambutan + jawaban cepat */}
-      <section className="panel corner-ticks relative order-1 overflow-hidden rounded-3xl p-5 sm:p-7 lg:col-span-3">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(40rem_20rem_at_85%_0%,rgb(39_199_245/0.12),transparent_70%)]" />
+      <section className="panel corner-ticks relative order-1 overflow-hidden rounded-3xl bg-gradient-to-br from-white via-white to-soft p-5 sm:p-7 lg:col-span-3">
+        <div className="hud-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_left,black,transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(40rem_20rem_at_85%_0%,rgb(163_230_53/0.22),transparent_70%)]" />
         <LeafHologram className="pointer-events-none absolute -right-6 -top-10 hidden h-80 w-80 opacity-70 md:block" />
         <div className="relative">
           <p className="text-sm text-muted">{formatHari(new Date())}</p>
@@ -108,7 +109,7 @@ export async function PetaniView({ user, lahanId }: { user: PenggunaAktif; lahan
             {salam()}, {namaDepan}
           </h1>
           <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
-            <MapPin className="size-4 text-cyan" aria-hidden />
+            <MapPin className="size-4 text-primary" aria-hidden />
             <span className="font-semibold text-fg">{l.nama}</span>
             {l.tanam && <span>· {l.tanam.komoditas} {l.tanam.varietas}</span>}
             <span>· {formatLuas(l.luasHa)}</span>
@@ -230,7 +231,7 @@ export async function PetaniView({ user, lahanId }: { user: PenggunaAktif; lahan
           title="Yang perlu dilakukan"
           description="Rekomendasi hari ini"
           action={
-            <Link href="/rekomendasi" className="text-sm font-semibold text-cyan hover:underline">
+            <Link href="/rekomendasi" className="text-sm font-semibold text-primary hover:underline">
               Semua
             </Link>
           }
@@ -242,7 +243,7 @@ export async function PetaniView({ user, lahanId }: { user: PenggunaAktif; lahan
             d.rekomendasi.slice(0, 2).map((r) => <RecommendationCard key={r.id} rek={r} bisaAksi ringkas />)
           )}
           {d.rekomendasi.length > 2 && (
-            <Link href="/rekomendasi" className="block text-center text-sm font-semibold text-cyan hover:underline">
+            <Link href="/rekomendasi" className="block text-center text-sm font-semibold text-primary hover:underline">
               +{d.rekomendasi.length - 2} rekomendasi lain
             </Link>
           )}
@@ -256,7 +257,7 @@ export async function PetaniView({ user, lahanId }: { user: PenggunaAktif; lahan
           title="Pertumbuhan & panen"
           description="Tanaman aktif di lahan terpilih"
           action={
-            <Link href="/tanam-panen" className="text-sm font-semibold text-cyan hover:underline">
+            <Link href="/tanam-panen" className="text-sm font-semibold text-primary hover:underline">
               Kelola
             </Link>
           }
@@ -273,7 +274,7 @@ export async function PetaniView({ user, lahanId }: { user: PenggunaAktif; lahan
                 .filter((x) => x.id !== l.id && x.tanam)
                 .map((x) => (
                   <li key={x.id}>
-                    <Link href={`/dashboard?lahan=${x.id}`} className="flex items-center justify-between gap-3 px-4 py-3 text-sm hover:bg-white/[0.02]">
+                    <Link href={`/dashboard?lahan=${x.id}`} className="flex items-center justify-between gap-3 px-4 py-3 text-sm hover:bg-soft/60">
                       <span>
                         <span className="font-semibold">{x.nama}</span>
                         <span className="text-muted"> · HST {x.tanam!.hst}</span>

@@ -33,7 +33,7 @@ export function WeatherCard({ cuaca }: { cuaca: RingkasanCuaca | null }) {
                 { ikon: Thermometer, label: "Suhu udara", nilai: cuaca.suhu != null ? `${cuaca.suhu}°` : "–" },
               ].map(({ ikon: Ikon, label, nilai }) => (
                 <div key={label} className="rounded-xl border border-line bg-bg/40 px-2 py-3">
-                  <Ikon className="mx-auto size-4 text-cyan" aria-hidden />
+                  <Ikon className="mx-auto size-4 text-data" aria-hidden />
                   <dd className="mt-1.5 font-bold num">{nilai}</dd>
                   <dt className="text-[11px] leading-tight text-muted">{label}</dt>
                 </div>

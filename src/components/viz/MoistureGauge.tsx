@@ -48,21 +48,21 @@ export function MoistureGauge({
         {Array.from({ length: 11 }, (_, i) => {
           const a = titik(i * 10, 92);
           const b = titik(i * 10, i % 5 === 0 ? 86 : 89);
-          return <line key={i} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="#91A2BC" strokeOpacity={i % 5 === 0 ? 0.5 : 0.25} />;
+          return <line key={i} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="#718078" strokeOpacity={i % 5 === 0 ? 0.5 : 0.25} />;
         })}
-        <path d={busur(0, 100, 78)} stroke="#162744" strokeWidth="12" fill="none" strokeLinecap="round" />
+        <path d={busur(0, 100, 78)} stroke="#E8F5EC" strokeWidth="12" fill="none" strokeLinecap="round" />
         {min !== undefined && maks !== undefined && (
-          <path d={busur(min, maks, 64)} stroke="#22C78A" strokeOpacity="0.55" strokeWidth="3" fill="none" strokeDasharray="2 3" />
+          <path d={busur(min, maks, 64)} stroke="#16834A" strokeOpacity="0.55" strokeWidth="3" fill="none" strokeDasharray="2 3" />
         )}
         {nilai !== null && (
           <>
             <path d={busur(0, nilai, 78)} stroke={warna} strokeWidth="12" fill="none" strokeLinecap="round" />
             <circle cx={ujung!.x} cy={ujung!.y} r="9" fill={warna} opacity="0.5" filter="url(#mg-glow)" />
-            <circle cx={ujung!.x} cy={ujung!.y} r="5" fill="#080F1F" stroke={warna} strokeWidth="3" />
+            <circle cx={ujung!.x} cy={ujung!.y} r="5" fill="#FFFFFF" stroke={warna} strokeWidth="3" />
           </>
         )}
-        <text x="22" y="116" fontSize="9" fill="#91A2BC">0</text>
-        <text x="170" y="116" fontSize="9" fill="#91A2BC">100</text>
+        <text x="22" y="116" fontSize="9" fill="#718078">0</text>
+        <text x="170" y="116" fontSize="9" fill="#718078">100</text>
       </svg>
       <figcaption className="absolute inset-x-0 bottom-1 text-center">
         <span className="block text-3xl font-bold leading-none num">

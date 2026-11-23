@@ -32,7 +32,7 @@ type Opsi = { id: string; nama: string }[];
 function PesanGalat({ pesan }: { pesan: string | null }) {
   if (!pesan) return null;
   return (
-    <p role="alert" className="flex items-start gap-2 rounded-xl border border-danger/35 bg-danger/10 px-3 py-2.5 text-sm text-[#ffc2c8]">
+    <p role="alert" className="flex items-start gap-2 rounded-xl border border-danger/35 bg-danger/10 px-3 py-2.5 text-sm text-danger">
       <OctagonAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
       {pesan}
     </p>
@@ -352,8 +352,8 @@ export function PanelSensor({ sensor, opsiLahan }: { sensor: BarisSensor[]; opsi
         title={`API key ${kunci?.kode ?? ""}`}
         description="Salin dan pasang di perangkat sensor sekarang. Key tidak akan ditampilkan lagi."
       >
-        <div className="flex items-center gap-2 rounded-xl border border-cyan/30 bg-bg/60 p-3">
-          <KeyRound className="size-4 shrink-0 text-cyan" aria-hidden />
+        <div className="flex items-center gap-2 rounded-xl border border-data/30 bg-bg/60 p-3">
+          <KeyRound className="size-4 shrink-0 text-primary" aria-hidden />
           <code className="min-w-0 flex-1 break-all font-mono text-sm">{kunci?.apiKey}</code>
           <Button
             size="sm"

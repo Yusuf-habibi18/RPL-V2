@@ -109,7 +109,7 @@ export default async function LaporanPage({ searchParams }: { searchParams: Prom
         <CardHeader icon={<BarChart3 />} title="Produksi per bulan" description="Total hasil panen pada periode terpilih" />
         <div className="p-5 pt-3">
           {d.musim.length ? (
-            <BarChartSimple data={d.produksiBulanan} xKey="bulan" yKey="hasilKg" label="Produksi" format="berat" warna="#22C78A" />
+            <BarChartSimple data={d.produksiBulanan} xKey="bulan" yKey="hasilKg" label="Produksi" format="berat" warna="#16834A" />
           ) : (
             <EmptyState icon={Wheat} title="Tidak ada panen pada periode ini" description="Perluas rentang tanggal atau ubah filter." />
           )}
